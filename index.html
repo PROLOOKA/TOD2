@@ -9,35 +9,28 @@
     <style> 
         body { 
             margin: 0; 
-            background-color: #121212; 
-            color: #f5f5f5; 
+            background-color: #1a1a1a; /* تغيير الخلفية */
         } 
-
         .jwplayer { 
             position: absolute !important; 
         } 
-
         .jwplayer.jw-flag-aspect-mode { 
             min-height: 100%; 
             max-height: 100%; 
         } 
-
         .jw-logo-container { 
             position: absolute; 
             top: 2%; 
             right: 55%; 
-        } 
+        }
     </style> 
 </head> 
 <body> 
     <div id="jwplayerDiv"></div> 
-
-    <!-- تحميل JWPlayer.js من GitHub Pages -->
-    <script src="https://USERNAME.github.io/jwplayer-host/jwplayer.js"></script> 
-
+    <script src="https://libraries.alraqi-tv.com/jwplayer.js"></script> 
     <script type="text/javascript"> 
         var config = {
-            file: "https://live-d-02-todtv-db.akamaized.net/variant/v1blackout/spo-hd-39-d-shortdvr/DASH_DASH/Live/channel(ent-hd-02)/manifest.mpd",
+            file: "https://live-d-02-todtv-db.akamaized.net/variant/v1blackout/spo-hd-39-d-shortdvr/DASH_DASH/Live/channel(ent-hd-02)/manifest.mpd?hdnts=st=1742007205~exp=1742021605~acl=/variant/v1blackout/spo-hd-39-d-shortdvr/*~data=307dac9a-827a-4751-aa57-2a21a5d451e6~hmac=95f2fee325097d4e02d8dfa44ada36870260c57d5ca951af43080e1a145df3ab",
             drm: {
                 clearkey: {
                     keyId: "0a7934dddc3136a6922584b96c3fd1e5",
@@ -45,54 +38,55 @@
                 }
             }
         };
-
         jwplayer("jwplayerDiv").setup({ 
             file: config.file, 
-            width: "100%", 
+            position: 'bottom', 
             autostart: true, 
+            stretching: "", 
+            width: "100%", 
             type: "dash", 
             volume: "100", 
             mute: false, 
-            pipIcon: true, 
-            castIcon: true, 
+            pipIcon: "true", 
+            castIcon: "true", 
             title: "alraqi-CONNECT",
             captions: { color: '#febc11', fontSize: '25%', backgroundOpacity: 80 },
             abouttext: 'alraqi-tv',
             aboutlink: 'https://alraqi-tv.com/DRM',
             sharing: {
-                sites: ['facebook', 'twitter', 'tumblr', 'email', 'linkedin', 'pinterest']
+                sites: ['facebook', 'twitter', 'tumblr', 'email', 'linkedin', 'pinterest', { icon: 'https://alraqi-tv.com/assets/ico/jwicon.png', src: 'https://alraqi-tv.com/DRM/?', label: 'JW-DRM' }]
             },
             skin: {
                 "controlbar": {
-                    "background": "rgba(18,18,18,0.8)",
-                    "icons": "#1E88E5",
-                    "iconsActive": "#BBDEFB",
-                    "text": "#90CAF9"
+                    "background": "rgb(0,0,0,0)", /* خلفية شفافة */
+                    "icons": "#00bcd4", /* تغيير اللون إلى الأزرق السماوي */
+                    "iconsActive": "#ffffff", /* الأيقونات النشطة باللون الأبيض */
+                    "text": "#00bcd4" /* النصوص باللون الأزرق السماوي */
                 },
                 "menus": {
-                    "background": "rgba(33,33,33,0.9)",
-                    "text": "#B0BEC5",
-                    "textActive": "#FFFFFF"
+                    "background": "rgb(0,0,0,5)", /* خلفية القائمة */
+                    "text": "rgb(255,255,255,0.8)", /* النصوص */
+                    "textActive": "#00bcd4" /* النصوص النشطة بالأزرق السماوي */
                 },
                 "timeslider": {
-                    "progress": "#1E88E5",
-                    "rail": "#90CAF9"
+                    "progress": "#00bcd4", /* شريط التقدم */
+                    "rail": "rgb(0,188,212)" /* لون السكك */
                 },
                 "tooltips": {
-                    "background": "#263238",
-                    "text": "#ECEFF1"
+                    "background": "#333333", /* خلفية التلميحات */
+                    "text": "#ffffff" /* النصوص باللون الأبيض */
                 }
             },
             cast: {
                 appid: 'com.instantbits.cast.webvideo',
-                interceptCast: true
+                interceptCast: 'true',
             },
             logo: { 
                 file: "https://alraqi-tv.com/assets/logos/DrKN77k.png", 
                 hide: false, 
                 position: "bottom-right",
                 margin: "150",
-                height: "25"
+                height: "25", 
             }, 
             drm: { 
                 clearkey: { 

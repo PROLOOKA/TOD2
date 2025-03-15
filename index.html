@@ -1,0 +1,106 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>alraqi-tv</title> 
+    <link rel="icon" href="https://alraqi-tv.com/logo/alraqi-tv.png"/> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <style> 
+        body { 
+            margin: 0; 
+            background-color: #121212; 
+            color: #f5f5f5; 
+        } 
+
+        .jwplayer { 
+            position: absolute !important; 
+        } 
+
+        .jwplayer.jw-flag-aspect-mode { 
+            min-height: 100%; 
+            max-height: 100%; 
+        } 
+
+        .jw-logo-container { 
+            position: absolute; 
+            top: 2%; 
+            right: 55%; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div id="jwplayerDiv"></div> 
+
+    <!-- تحميل JWPlayer.js من GitHub Pages -->
+    <script src="https://USERNAME.github.io/jwplayer-host/jwplayer.js"></script> 
+
+    <script type="text/javascript"> 
+        var config = {
+            file: "https://live-d-02-todtv-db.akamaized.net/variant/v1blackout/spo-hd-39-d-shortdvr/DASH_DASH/Live/channel(ent-hd-02)/manifest.mpd",
+            drm: {
+                clearkey: {
+                    keyId: "0a7934dddc3136a6922584b96c3fd1e5",
+                    key: "676e6d1dd00bfbe266003efaf0e3aa02"
+                }
+            }
+        };
+
+        jwplayer("jwplayerDiv").setup({ 
+            file: config.file, 
+            width: "100%", 
+            autostart: true, 
+            type: "dash", 
+            volume: "100", 
+            mute: false, 
+            pipIcon: true, 
+            castIcon: true, 
+            title: "alraqi-CONNECT",
+            captions: { color: '#febc11', fontSize: '25%', backgroundOpacity: 80 },
+            abouttext: 'alraqi-tv',
+            aboutlink: 'https://alraqi-tv.com/DRM',
+            sharing: {
+                sites: ['facebook', 'twitter', 'tumblr', 'email', 'linkedin', 'pinterest']
+            },
+            skin: {
+                "controlbar": {
+                    "background": "rgba(18,18,18,0.8)",
+                    "icons": "#1E88E5",
+                    "iconsActive": "#BBDEFB",
+                    "text": "#90CAF9"
+                },
+                "menus": {
+                    "background": "rgba(33,33,33,0.9)",
+                    "text": "#B0BEC5",
+                    "textActive": "#FFFFFF"
+                },
+                "timeslider": {
+                    "progress": "#1E88E5",
+                    "rail": "#90CAF9"
+                },
+                "tooltips": {
+                    "background": "#263238",
+                    "text": "#ECEFF1"
+                }
+            },
+            cast: {
+                appid: 'com.instantbits.cast.webvideo',
+                interceptCast: true
+            },
+            logo: { 
+                file: "https://alraqi-tv.com/assets/logos/DrKN77k.png", 
+                hide: false, 
+                position: "bottom-right",
+                margin: "150",
+                height: "25"
+            }, 
+            drm: { 
+                clearkey: { 
+                    keyId: config.drm.clearkey.keyId, 
+                    key: config.drm.clearkey.key 
+                } 
+            } 
+        }); 
+    </script> 
+</body> 
+</html>
